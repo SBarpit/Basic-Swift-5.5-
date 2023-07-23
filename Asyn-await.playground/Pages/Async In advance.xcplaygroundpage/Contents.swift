@@ -14,19 +14,16 @@ func synFunc() -> [Double] {
 }
 
 func fetchWeatherHistory() async -> [Double] {
-    print("1")
-    return (1...100_000).map { _ in Double.random(in: -10...30) }
+     (1...100_000).map { _ in Double.random(in: -10...30) }
 }
 
 func calculateAverageTemperature(for records: [Double]) async -> Double {
     let total = records.reduce(0, +)
     let average = total / Double(records.count)
-    print("2")
     return average
 }
 
 func upload(result: Double) async -> String {
-    print("3")
     return "OK"
 }
 
@@ -37,8 +34,8 @@ func processWeather() async {
     print("Server response: \(response)")
 }
 
-print(synFunc())
 await processWeather()
+
 await fetchWeatherHistory()
-print(synFunc())
+
 PlaygroundPage.current.finishExecution()
